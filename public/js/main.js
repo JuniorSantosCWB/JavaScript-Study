@@ -68,6 +68,8 @@ function inicializaMarcadores() {
         });
 }
 
+$("#botao-placar").click(mostraPlacar);
+
 function inserePlacar(){
     var corpoTabela = $(".placar").find("tbody");
     var usuario = "Player1";
@@ -94,4 +96,9 @@ function reiniciaJogo(){
   $("#tempo-digitacao").text(tempoInicial);
   campo.removeClass("campo-desativado");
   inicializaCronometro();
+}
+
+
+function mostraPlacar(){
+    $(".placar").slideToggle(500); 
 }
