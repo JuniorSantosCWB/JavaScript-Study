@@ -85,9 +85,26 @@ function inserePlacar(){
     corpoTabela.prepend(linha);
     $(".botao-remover").click(function(event){
         event.preventDefault();
-        $(this).parent().parent().remove();
+          var linha = $(this).parent().parent();
+          linha.fadeOut(1000);
+          setTimeout(function(){
+            linha.remove();
+          },1000);
 });
+    $(".placar").slideDown(500);
+    scrollPlacar();
 }
+
+function scrollPlacar() {
+    var posicaoPlacar = $(".placar").offset().top;
+
+    $("html, body").animate(
+    {
+        scrollTop: posicaoPlacar + "1000px"
+    }, 1000);
+}
+
+
 function reiniciaJogo(){
   campo.attr("disabled", false);
   campo.val("");
@@ -100,5 +117,5 @@ function reiniciaJogo(){
 
 
 function mostraPlacar(){
-    $(".placar").slideToggle(500); 
+    $(".placar").stop().slideToggle(500); 
 }

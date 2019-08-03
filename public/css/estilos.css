@@ -1,7 +1,6 @@
 body{
   background-color: #E1F5FE;
   line-height: 1.5;
-  overflow: scroll;
 
 }
 
@@ -93,4 +92,8 @@ justify-content: center;
 
 .placar {
   display: none;
+}
+
+body {
+  overflow: scroll;
 }
