@@ -97,3 +97,12 @@ justify-content: center;
 body {
   overflow: scroll;
 }
+
+.erro{
+  color: red;
+  display: none;
+}
+
+#spinner{
+  display: none;
+}
