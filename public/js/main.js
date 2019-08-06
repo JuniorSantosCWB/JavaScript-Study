@@ -6,6 +6,7 @@ $(function(){
     inicializaCronometro();
     inicializaMarcadores();
     $("#reloadbtn").click(reiniciaJogo);
+    atualizaPlacar();
 
 });
 
@@ -84,7 +85,7 @@ function sincronizaPlacar(){
 
         var score = {
             usuario: usuario,
-            pontos: palavras  
+            pontos: palavras 
         };
         placar.push(score)
     });
@@ -96,6 +97,18 @@ function sincronizaPlacar(){
 
     });
 }
+
+function atualizaPlacar(){
+    $.get("http://localhost:3000/placar",function(data){
+        $(data).each(function(){
+            var linha = novaLinha(this.usuario, this.pontos);
+             $("tbody").append(linha);
+        });
+    });
+}
+
+
+
 
 
 function inserePlacar(){
